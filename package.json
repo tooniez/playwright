@@ -1,0 +1,21 @@
+{
+  "name": "playwright-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tooniez/playwright-typescript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tooniez/playwright-typescript/issues"
+  },
+  "homepage": "https://github.com/tooniez/playwright-typescript#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.24.0-alpha-jun-25-2022"
+  }
+}
