@@ -1,11 +1,11 @@
-name: Playwright Tests
+name: Playwright Tests in chrome
 on:
   push:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
 jobs:
-  firefox-test:
+  chrome:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -17,8 +17,8 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: npx playwright test --project=firefox
+    - name: Run Playwright tests in chrome
+      run: npx playwright test --project=chrome
     - uses: actions/upload-artifact@v2
       if: always()
       with:
