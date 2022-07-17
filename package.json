@@ -3,21 +3,46 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --fix"
+    ],
+    "*.{json,md,scss,yaml,yml}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "scripts": {
-    "test": "npx playwright test"
+    "test": "npx playwright test",
+    "fix:other": "npx prettier --write",
+    "fix:code": "npx test:code --fix",
+    "fix": "npx fix:code && npx fix:other",
+    "prettier": "prettier \"**/*.{json,md,scss,yaml,yml}\"",
+    "test:other": "npx prettier --list-different",
+    "test:code": "eslint --ignore-path .gitignore --ignore-path .prettierignore --ext .ts,.js,.jsx ."
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tooniez/playwright-typescript.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tooniez/playwright-typescript/issues"
-  },
-  "homepage": "https://github.com/tooniez/playwright-typescript#readme",
+      },
+      "keywords": [],
+      "author": "",
+      "license": "ISC",
+      "bugs": {
+        "url": "https://github.com/tooniez/playwright-typescript/issues"
+      },
+      "homepage": "https://github.com/tooniez/playwright-typescript#readme",
   "devDependencies": {
-    "@playwright/test": "^1.24.0-alpha-jun-25-2022"
+    "@playwright/test": "^1.24.0-alpha-jun-25-2022",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "husky": "7.0.1",
+    "lint-staged": "11.1.1",
+    "prettier": "2.3.2"
   }
 }
